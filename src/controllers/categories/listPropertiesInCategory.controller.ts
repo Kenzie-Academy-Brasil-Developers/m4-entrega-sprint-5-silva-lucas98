@@ -3,9 +3,13 @@ import listPropertiesInCategoryService from "../../services/categories/listPrope
 
 const listPropertiesInCategoryController = async (req: Request, res: Response) => {
   const id: string = req.params.id;
-  const properties = await listPropertiesInCategoryService(id);
+  const data = await listPropertiesInCategoryService(id);
 
-  return res.send(properties);
+  return res.json({
+    id: id,
+    name: data[0],
+    properties: data[1]
+  });
 }
 
 export default listPropertiesInCategoryController;
