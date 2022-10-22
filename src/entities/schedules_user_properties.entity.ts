@@ -1,4 +1,4 @@
-import { Entity, Column, PrimaryGeneratedColumn, CreateDateColumn, ManyToOne } from "typeorm";
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from "typeorm";
 import { Properties } from "./properties.entity";
 import { User } from "./user.entity";
 
@@ -7,11 +7,11 @@ class SchedulesUserProperties {
   @PrimaryGeneratedColumn("uuid")
   id: string;
 
-  @CreateDateColumn()
-  date: Date;
+  @Column({ type: "date"})
+  date: string;
 
   @Column({ type: "time" })
-  hour: Date;
+  hour: string;
 
   @ManyToOne(() => Properties)
   property: Properties;
